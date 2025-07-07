@@ -1,54 +1,39 @@
 # Capstone-project
 Real-time dynamic pricing for parking lots using Pathway and Bokeh. Automatically adjusts prices based on demand, with live interactive visualizations.
 Dynamic Parking Pricing with Real-Time Data
-Overview
-This project implements real-time dynamic pricing for parking lots using Python, Pathway, and Bokeh. The system adjusts parking prices automatically based on live demand factors such as occupancy, queue length, and special days, and visualizes results interactively.
+Dynamic Parking Pricing System
 
-Tech Stack
-Python (pandas, numpy)
+Overview  
+This project implements a dynamic pricing system for parking lots that adjusts prices in real time based on demand. Two pricing models are used to calculate optimal prices, and interactive visualizations are provided to justify pricing changes.
 
-Pathway (real-time data processing)
+Tech Stack  
+- Python 3  
+- Google Colab  
+- Bokeh (for interactive visualizations)  
+- NumPy, Pandas (for data processing)
 
-Bokeh + Panel (interactive visualization)
+Architecture Diagram  
+flowchart TD  
+    A[Input Data] --> B[Demand Calculation]  
+    B --> C[Pricing Models]  
+    C --> D[Price Output]  
+    D --> E[Visualization]
 
-Google Colab (notebook environment)
+Project Architecture and Workflow  
+- Input real-time or simulated parking demand data  
+- Calculate demand scores for each parking lot  
+- Apply two pricing models to determine dynamic prices  
+- Visualize price changes over time using Bokeh  
+- Use visualizations to justify pricing decisions based on demand
 
-Architecture Diagram
-text
-flowchart TD
-    A[CSV Data] --> B[Data Cleaning (pandas)]
-    B --> C[Pathway Streaming Pipeline]
-    C --> D[Pricing Models]
-    D --> E[Bokeh Visualization Dashboard]
-Project Architecture & Workflow
-Data Preparation:
-Raw parking data is cleaned and converted to numeric types using pandas. Categorical fields (like traffic condition) are mapped to numbers, and missing values are handled.
+Usage  
+- Open the Google Colab notebook  
+- Run all cells to simulate pricing and generate visualizations  
+- Refer to the PDF report for detailed analysis
 
-Streaming Pipeline:
-Pathway ingests the cleaned data as a real-time stream, applies windowing and aggregation (per parking lot, per day), and computes features needed for pricing.
+Documentation  
+- The Colab notebook contains all code and interactive plots  
+- The PDF report summarizes methodology and results
 
-Pricing Models:
+Here is the link to the Google Colab notebook: https://colab.research.google.com/drive/1XD3PnANSLNcpVr99dGzsgaR0Q3p2Z-Rs
 
-Model 1: Simple occupancy-based price formula.
-
-Model 2: Demand-based price model using occupancy, queue length, traffic, special day, and vehicle type.
-
-Visualization:
-Bokeh and Panel are used to create an interactive dashboard that shows real-time price changes for each parking space, with both models plotted for comparison.
-
-Getting Started
-Clone this repository.
-
-Open the Colab notebook (your_notebook_name.ipynb).
-
-Run all cells (dependencies are installed automatically).
-
-The dashboard will appear in the notebook output.
-
-Data
-The dataset (dataset.csv) contains all required columns and is documented in the notebook.
-
-Results
-Real-time price plots for each parking lot.
-
-Visual justification for dynamic pricing decisions
